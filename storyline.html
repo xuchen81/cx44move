@@ -24,7 +24,7 @@
     </script>
 
     <script>
-      var firstDate = {{ first_date|safe }}
+      var firstDate = {{ first_date|safe }};
       var minDate = $.datepicker.parseDate("yymmdd", firstDate);
 
       $(function() {

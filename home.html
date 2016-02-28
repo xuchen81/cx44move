@@ -89,7 +89,7 @@
 
     <script>
       var places = {{ locations|safe }};
-      var firstDate = {{ first_date|safe }}
+      var firstDate = {{ first_date|safe }};
       var minDate = $.datepicker.parseDate("yymmdd", firstDate);
       var map;
 
@@ -97,7 +97,10 @@
         var today = new Date();
         var todayStr = $.datepicker.formatDate('yy-mm-dd', today);
         var mapLoader = new MapLoader(todayStr);
-        mapLoader.loadingPlaces(places);
+        if (places) {
+          console.log(places);
+          mapLoader.loadingPlaces(places);
+        }
         $("#datepicker").datepicker({
           dateFormat: 'yy-mm-dd',
           minDate: minDate,

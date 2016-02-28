@@ -20,6 +20,7 @@ function MapLoader(date) {
   this.loadingPlaces = function(places) {
 
     function initialize() {
+      console.log(places);
   	  var mapOptions = {
   	    mapTypeId: google.maps.MapTypeId.ROADMAP,
   	    center: new google.maps.LatLng(places[0]['place']['location']['lat'], places[0]['place']['location']['lon'])
