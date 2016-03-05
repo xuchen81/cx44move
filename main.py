@@ -36,7 +36,7 @@ def get_access_token():
 
 def get_user_profile():
   params = urllib.urlencode({'access_token': config.NEW_ACCESS_TOKEN})
-  url = "api.moves-app.com/api/v1/user/profile?%s" % (params)
+  url = "api.moves-app.com/api/1.1/user/profile?%s" % (params)
   conn = httplib.HTTPSConnection(url)
   conn.request("GET", "", "")
   response = conn.getresponse()
@@ -46,9 +46,9 @@ def get_user_profile():
 def get_places(first_date, last_date=''):
   params = urllib.urlencode({'access_token': config.NEW_ACCESS_TOKEN})
   if last_date == '':
-    url = "api.moves-app.com/api/v1/user/places/daily/%s?%s" % (first_date, params)
+    url = "api.moves-app.com/api/1.1/user/places/daily/%s?%s" % (first_date, params)
   else:
-    url = "api.moves-app.com/api/v1/user/places/daily?from=%s&to=%s&%s" % (first_date, last_date, params)
+    url = "api.moves-app.com/api/1.1/user/places/daily?from=%s&to=%s&%s" % (first_date, last_date, params)
 
   conn = httplib.HTTPSConnection(url)
   conn.request("GET", "", "")
@@ -61,9 +61,9 @@ def get_places(first_date, last_date=''):
 def get_storyline(first_date, last_date=''):
   params = urllib.urlencode({'access_token': config.NEW_ACCESS_TOKEN})
   if last_date == '':
-    url = "api.moves-app.com/api/v1/user/storyline/daily/%s?%s" % (first_date, params)
+    url = "api.moves-app.com/api/1.1/user/storyline/daily/%s?%s" % (first_date, params)
   else:
-    url = "api.moves-app.com/api/v1/user/storyline/daily?from=%s&to=%s&%s" % (first_date, last_date, params)
+    url = "api.moves-app.com/api/1.1/user/storyline/daily?from=%s&to=%s&%s" % (first_date, last_date, params)
 
   conn = httplib.HTTPSConnection(url)
   conn.request("GET", "", "")
@@ -113,7 +113,7 @@ class Storyline(webapp2.RequestHandler):
         today = True
       if delta.days == 1:
         yesterday = True
-    
+
     storyline = get_storyline(date_str)
     user_info = get_user_profile()
 

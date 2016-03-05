@@ -6,8 +6,9 @@ register = webapp.template.create_template_register()
 
 @register.filter
 def formatTime(yyyyMMddTHHmmssZ):
-  time_format = "%Y%m%dT%H%M%SZ"
-  dt = datetime.datetime.strptime(yyyyMMddTHHmmssZ, time_format)
+  yyyyMMddTHHmmss = yyyyMMddTHHmmssZ.split('-')[0]
+  time_format = "%Y%m%dT%H%M%S"
+  dt = datetime.datetime.strptime(yyyyMMddTHHmmss, time_format)
   est_dt = dt - datetime.timedelta(hours=4)
   date_str = est_dt.strftime("%Y-%m-%d %H:%M")
   return date_str
@@ -36,7 +37,3 @@ def setMoveHeight(value):
   if int(value / 60) * 20 >= 250:
     return 250
   return int(value / 60) * 15
-
-
-
-

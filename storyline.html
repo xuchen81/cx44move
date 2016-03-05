@@ -123,17 +123,17 @@
               <div id="storyline-move">
                 {% if 'activities' in item %}
                   {% for activity in item.activities %}
-                    {% if activity.activity == 'wlk' %}
+                    {% if activity.activity == 'walking' %}
                       <div id="move-walk" class="move-text" style="height:{{ activity.duration|setMoveHeight }}px;line-height:{{ activity.duration|setMoveHeight }}px;veritical-align:middle;">Walk {{ activity.duration|convertSecsToMins }} mins</div>
-                    {% else %}
-                      {% if activity.activity == 'trp' %}
+                    {% else %} {% if activity.activity == 'transport' %}
                       <div id="move-transport" class="move-text" style="height:{{ activity.duration|setMoveHeight }}px;line-height:{{ activity.duration|setMoveHeight }}px;veritical-align:middle;">Transport {{ activity.duration|convertSecsToMins }} mins</div>
-                      {% else %}
-                        {% if activity.activity == 'run' %}
+                    {% else %} {% if activity.activity == 'running' %}
                         <div id="move-run" class="move-text" style="height:{{ activity.duration|setMoveHeight }}px;line-height:{{ activity.duration|setMoveHeight }}px;veritical-align:middle;">Run {{ activity.duration|convertSecsToMins }} mins</div>
-                        {% endif %}
-                      {% endif %}                      
-                    {% endif %}
+                    {% else %} {% if activity.activity == 'downhill_skiing' %}
+                        <div id="move-downhill-skiing" class="move-text" style="height:{{ activity.duration|setMoveHeight }}px;line-height:{{ activity.duration|setMoveHeight }}px;veritical-align:middle;">Downhill Ski {{ activity.duration|convertSecsToMins }} mins</div>
+                    {% else %} {% if activity.activity == 'cycling' %}
+                        <div id="move-cycling" class="move-text" style="height:{{ activity.duration|setMoveHeight }}px;line-height:{{ activity.duration|setMoveHeight }}px;veritical-align:middle;">Cycle {{ activity.duration|convertSecsToMins }} mins</div>
+                    {% endif %} {% endif %} {% endif %} {% endif %} {% endif %}
                   {% endfor %}
                 {% endif %}
               </div>
@@ -142,7 +142,7 @@
           </div>
 
           <div class="row-fluid">
-           
+
           </div><!--/row-->
         </div><!--/span-->
       </div><!--/row-->
