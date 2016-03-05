@@ -83,8 +83,8 @@ class RequestHandle(webapp2.RequestHandler):
 class Home(webapp2.RequestHandler):
   def get(self):
     utc_now = datetime.datetime.now()
-    est_now = utc_now - datetime.timedelta(hours=4)
-    today_str = est_now.strftime('%Y-%m-%d')
+    pst_now = utc_now - datetime.timedelta(hours=7)
+    today_str = pst_now.strftime('%Y-%m-%d')
     locations = get_places(today_str)
     user_info = get_user_profile()
 
@@ -99,7 +99,7 @@ class Storyline(webapp2.RequestHandler):
     yesterday = False
 
     utc_now = datetime.datetime.now()
-    est_now = utc_now - datetime.timedelta(hours=4)
+    est_now = utc_now - datetime.timedelta(hours=7)
     date_str = est_now.strftime('%Y-%m-%d')
 
     if specfied_date == '':
