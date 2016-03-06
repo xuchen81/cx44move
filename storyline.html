@@ -113,7 +113,47 @@
                     </div>
                     <span>{{ activity.endTime|formatTimeWithSeconds }}</span>
                     </div>
-                  {% endif %}
+                  {% else %} {% if activity.activity == 'gym_training' %}
+                    <div class="storyline-place-activity-content">
+                    <div id="storyline-place-activity" class="storyline-place-activity-color{{ color_option|randomizeColor }}">
+                      <span>
+                          Gym training {{ activity.duration|toMinutes }} minutes
+                      </span>
+                    </div>
+                    </div>
+                  {% else %} {% if activity.activity == 'aerobics' %}
+                    <div class="storyline-place-activity-content">
+                    <div id="storyline-place-activity" class="storyline-place-activity-color{{ color_option|randomizeColor }}">
+                      <span>
+                          Aerobics {{ activity.duration|toMinutes }} minutes
+                      </span>
+                    </div>
+                    </div>
+                  {% else %} {% if activity.activity == 'basketball' %}
+                    <div class="storyline-place-activity-content">
+                    <div id="storyline-place-activity" class="storyline-place-activity-color{{ color_option|randomizeColor }}">
+                      <span>
+                          Basketball {{ activity.duration|toMinutes }} minutes
+                      </span>
+                    </div>
+                    </div>
+                  {% else %} {% if activity.activity == 'running_on_treadmill' %}
+                    <div class="storyline-place-activity-content">
+                    <div id="storyline-place-activity" class="storyline-place-activity-color{{ color_option|randomizeColor }}">
+                      <span>
+                          Running on  treadmill {{ activity.duration|toMinutes }} minutes
+                      </span>
+                    </div>
+                    </div>
+                  {% else %} {% if activity.activity == 'indoor_cycling' %}
+                    <div class="storyline-place-activity-content">
+                    <div id="storyline-place-activity" class="storyline-place-activity-color{{ color_option|randomizeColor }}">
+                      <span>
+                          Indoor cycling {{ activity.duration|toMinutes }} minutes
+                      </span>
+                    </div>
+                    </div>
+                  {% endif %} {% endif %} {% endif %} {% endif %} {% endif %} {% endif %}
                 {% endfor %}
                 </div>
               {% endif %}
@@ -131,6 +171,10 @@
                       <div id="move-transport" class="move-text" style="height:{{ activity.duration|setMoveHeight }}px;line-height:{{ activity.duration|setMoveHeight }}px;veritical-align:middle;">Bus {{ activity.duration|convertSecsToMins }} mins</div>
                     {% else %} {% if activity.activity == 'car' %}
                       <div id="move-transport" class="move-text" style="height:{{ activity.duration|setMoveHeight }}px;line-height:{{ activity.duration|setMoveHeight }}px;veritical-align:middle;">Car {{ activity.duration|convertSecsToMins }} mins</div>
+                    {% else %} {% if activity.activity == 'underground' %}
+                      <div id="move-transport" class="move-text" style="height:{{ activity.duration|setMoveHeight }}px;line-height:{{ activity.duration|setMoveHeight }}px;veritical-align:middle;">Underground {{ activity.duration|convertSecsToMins }} mins</div>
+                    {% else %} {% if activity.activity == 'train' %}
+                      <div id="move-transport" class="move-text" style="height:{{ activity.duration|setMoveHeight }}px;line-height:{{ activity.duration|setMoveHeight }}px;veritical-align:middle;">Train {{ activity.duration|convertSecsToMins }} mins</div>
                     {% else %} {% if activity.activity == 'airplane' %}
                         <div id="move-transport" class="move-text" style="height:{{ activity.duration|setMoveHeight }}px;line-height:{{ activity.duration|setMoveHeight }}px;veritical-align:middle;">Airplane {{ activity.duration|convertSecsToMins }} mins</div>
                     {% else %} {% if activity.activity == 'running' %}
@@ -139,7 +183,7 @@
                         <div id="move-downhill-skiing" class="move-text" style="height:{{ activity.duration|setMoveHeight }}px;line-height:{{ activity.duration|setMoveHeight }}px;veritical-align:middle;">Downhill Ski {{ activity.duration|convertSecsToMins }} mins</div>
                     {% else %} {% if activity.activity == 'cycling' %}
                         <div id="move-cycling" class="move-text" style="height:{{ activity.duration|setMoveHeight }}px;line-height:{{ activity.duration|setMoveHeight }}px;veritical-align:middle;">Cycle {{ activity.duration|convertSecsToMins }} mins</div>
-                    {% endif %} {% endif %} {% endif %} {% endif %} {% endif %} {% endif %} {% endif %} {% endif %}
+                    {% endif %} {% endif %} {% endif %} {% endif %} {% endif %} {% endif %} {% endif %} {% endif %} {% endif %} {% endif %}
                   {% endfor %}
                 {% endif %}
               </div>

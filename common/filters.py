@@ -23,6 +23,10 @@ def formatTimeWithSeconds(yyyyMMddTHHmmssZ):
   return date_str
 
 @register.filter
+def toMinutes(seconds):
+  return int(seconds / 60)
+
+@register.filter
 def convertSecsToMins(value):
   return int(value / 60)
 
