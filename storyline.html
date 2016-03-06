@@ -103,7 +103,7 @@
               {% if 'activities' in item %}
                 <div id="storyline-lower-content">
                 {% for activity in item.activities %}
-                  {% if activity.activity == 'wlk' %}
+                  {% if activity.activity == 'walking' %}
                     <div class="storyline-place-activity-content">
                     <span>{{ activity.startTime|formatTimeWithSeconds }}</span>
                     <div id="storyline-place-activity" class="storyline-place-activity-color{{ color_option|randomizeColor }}">

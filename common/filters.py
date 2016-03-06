@@ -15,8 +15,9 @@ def formatTime(yyyyMMddTHHmmssZ):
 
 @register.filter
 def formatTimeWithSeconds(yyyyMMddTHHmmssZ):
-  time_format = "%Y%m%dT%H%M%SZ"
-  dt = datetime.datetime.strptime(yyyyMMddTHHmmssZ, time_format)
+  yyyyMMddTHHmmss = yyyyMMddTHHmmssZ.split('-')[0]
+  time_format = "%Y%m%dT%H%M%S"
+  dt = datetime.datetime.strptime(yyyyMMddTHHmmss, time_format)
   est_dt = dt - datetime.timedelta(hours=4)
   date_str = est_dt.strftime("%H:%M:%S")
   return date_str
